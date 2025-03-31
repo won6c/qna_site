@@ -17,7 +17,7 @@ def question_detail(request, pk):
         if content and request.user.is_authenticated:
             Answer.objects.create(question=question, content = content, author=request.user, created_at=timezone.now())
             return redirect('qa/question_detail.html', pk=pk)
-        return render(request, 'qa/question_detail.html',{'question':question})
+    return render(request, 'qa/question_detail.html',{'question':question})
 
 @login_required
 def ask_question(request):
